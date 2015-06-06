@@ -11,6 +11,10 @@
 		03640CFF1B230D710049E54C /* SwiftUtil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03640CF31B230D710049E54C /* SwiftUtil.framework */; };
 		03640D061B230D710049E54C /* SwiftUtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03640D051B230D710049E54C /* SwiftUtilTests.swift */; };
 		03640D101B230F580049E54C /* HttpUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03640D0F1B230F580049E54C /* HttpUtil.swift */; };
+		03640D6E1B233BB10049E54C /* TokenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03640D6D1B233BB10049E54C /* TokenButton.swift */; };
+		03E17BF71B2379E400ED0128 /* FileUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E17BF61B2379E400ED0128 /* FileUtil.swift */; };
+		03E17BF91B237A0F00ED0128 /* DatabaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E17BF81B237A0F00ED0128 /* DatabaseUtil.swift */; };
+		03E17BFB1B237A3700ED0128 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E17BFA1B237A3700ED0128 /* DateUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +35,10 @@
 		03640D041B230D710049E54C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03640D051B230D710049E54C /* SwiftUtilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUtilTests.swift; sourceTree = "<group>"; };
 		03640D0F1B230F580049E54C /* HttpUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUtil.swift; sourceTree = "<group>"; };
+		03640D6D1B233BB10049E54C /* TokenButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenButton.swift; sourceTree = "<group>"; };
+		03E17BF61B2379E400ED0128 /* FileUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtil.swift; sourceTree = "<group>"; };
+		03E17BF81B237A0F00ED0128 /* DatabaseUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseUtil.swift; sourceTree = "<group>"; };
+		03E17BFA1B237A3700ED0128 /* DateUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +84,10 @@
 				03640CF81B230D710049E54C /* SwiftUtil.h */,
 				03640D0F1B230F580049E54C /* HttpUtil.swift */,
 				03640CF61B230D710049E54C /* Supporting Files */,
+				03640D6D1B233BB10049E54C /* TokenButton.swift */,
+				03E17BF61B2379E400ED0128 /* FileUtil.swift */,
+				03E17BF81B237A0F00ED0128 /* DatabaseUtil.swift */,
+				03E17BFA1B237A3700ED0128 /* DateUtil.swift */,
 			);
 			path = SwiftUtil;
 			sourceTree = "<group>";
@@ -212,7 +224,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03E17BF91B237A0F00ED0128 /* DatabaseUtil.swift in Sources */,
+				03E17BFB1B237A3700ED0128 /* DateUtil.swift in Sources */,
+				03E17BF71B2379E400ED0128 /* FileUtil.swift in Sources */,
 				03640D101B230F580049E54C /* HttpUtil.swift in Sources */,
+				03640D6E1B233BB10049E54C /* TokenButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +422,7 @@
 				03640D0B1B230D710049E54C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03640D0C1B230D710049E54C /* Build configuration list for PBXNativeTarget "SwiftUtilTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +431,7 @@
 				03640D0E1B230D710049E54C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
