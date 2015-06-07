@@ -22,7 +22,7 @@ pod "SwiftUtil"
 
 ## Author
 
-chaluemwut, chaluemwut@gmail.com
+chaluemwut, chaluemwut@hotmail.com
 
 ## License
 
