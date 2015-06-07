@@ -5,4 +5,4 @@ before_install:
 - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
 
 script: 
-- xctool clean build -project SwiftUtil.xcodeproj -scheme SwiftUtilRelease
+- xctool clean build -project SwiftUtil.xcodeproj -scheme SwiftUtil
