@@ -8,4 +8,4 @@ before_install:
 
 script:
 - xcodebuild -list
-- xcodebuild clean build -project SwiftUtil.xcodeproj -scheme SwiftUtil
+- xcodebuild clean build -project SwiftUtil.xcodeproj -scheme SwiftUtil -configuration Debug
