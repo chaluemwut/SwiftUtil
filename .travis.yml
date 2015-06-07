@@ -1,8 +1,10 @@
+x_image: beta-xcode6.3
+
 language: objective-c
-osx_image: beta-xcode6.3
-before_install: 
+
+before_install:
 - brew update
 - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
 
-script: 
-- xctool clean build -project SwiftUtil.xcodeproj -scheme SwiftUtil
+script:
+- xcodebuild clean build -workspace SwiftUtil.xcworkspace -scheme SwiftUtil
