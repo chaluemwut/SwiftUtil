@@ -4,12 +4,21 @@ public class HttpUtil {
     
     public init(){}
     
-    public static func request(strURL:String, instance:AnyObject) {
+    public static func request(strURL:String, instance:AnyObject?) {
         self.templateCall(strURL, instance: instance)
     }
     
     public static func request(strURL:String){
         self.templateCall(strURL, instance: nil)
+    }
+    
+    public static func request(baseURL:String, paramData:Dictionary<String, AnyObject>) {
+        var param:String = "?"
+        for (key, value) in paramData {
+            param+=key+"="+(value as! String)+"&"
+        }
+        param = param.substringWithRange(Range<String.Index>(start: param.startIndex, end: advance(param.endIndex, -1)))
+        self.request(baseURL+param)
     }
     
     private static func templateCall(strURL:String, instance:AnyObject?){
@@ -18,4 +27,5 @@ public class HttpUtil {
         var connection: NSURLConnection = NSURLConnection(request: request, delegate: instance, startImmediately: true)!
         connection.start()
     }
+
 }
