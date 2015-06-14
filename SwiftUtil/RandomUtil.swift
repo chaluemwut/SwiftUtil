@@ -10,7 +10,7 @@ import UIKit
 
 public class RandomUtil {
    
-    public static func randomStringWithLength (len : Int) -> NSString {        
+    public static func randomStringWithLength (len : Int) -> String {
         let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         var randomString : NSMutableString = NSMutableString(capacity: len)
         for (var i=0; i < len; i++){
@@ -18,7 +18,7 @@ public class RandomUtil {
             var rand = arc4random_uniform(length)
             randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
         }
-        return randomString
+        return String(randomString)
     }
     
 }
