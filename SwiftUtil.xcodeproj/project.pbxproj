@@ -13,6 +13,7 @@
 		03640D101B230F580049E54C /* HttpUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03640D0F1B230F580049E54C /* HttpUtil.swift */; };
 		03640D6E1B233BB10049E54C /* TokenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03640D6D1B233BB10049E54C /* TokenButton.swift */; };
 		03C691621B2BE0E500A9F783 /* RandomUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C691611B2BE0E500A9F783 /* RandomUtil.swift */; };
+		03CC60E21B2ED8C100B52EEF /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CC60E11B2ED8C100B52EEF /* ImageUtil.swift */; };
 		03E17BF71B2379E400ED0128 /* FileUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E17BF61B2379E400ED0128 /* FileUtil.swift */; };
 		03E17BF91B237A0F00ED0128 /* DatabaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E17BF81B237A0F00ED0128 /* DatabaseUtil.swift */; };
 		03E17BFB1B237A3700ED0128 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E17BFA1B237A3700ED0128 /* DateUtil.swift */; };
@@ -38,6 +39,7 @@
 		03640D0F1B230F580049E54C /* HttpUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUtil.swift; sourceTree = "<group>"; };
 		03640D6D1B233BB10049E54C /* TokenButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenButton.swift; sourceTree = "<group>"; };
 		03C691611B2BE0E500A9F783 /* RandomUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomUtil.swift; sourceTree = "<group>"; };
+		03CC60E11B2ED8C100B52EEF /* ImageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
 		03E17BF61B2379E400ED0128 /* FileUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtil.swift; sourceTree = "<group>"; };
 		03E17BF81B237A0F00ED0128 /* DatabaseUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseUtil.swift; sourceTree = "<group>"; };
 		03E17BFA1B237A3700ED0128 /* DateUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				03E17BF81B237A0F00ED0128 /* DatabaseUtil.swift */,
 				03E17BFA1B237A3700ED0128 /* DateUtil.swift */,
 				03C691611B2BE0E500A9F783 /* RandomUtil.swift */,
+				03CC60E11B2ED8C100B52EEF /* ImageUtil.swift */,
 			);
 			path = SwiftUtil;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03C691621B2BE0E500A9F783 /* RandomUtil.swift in Sources */,
+				03CC60E21B2ED8C100B52EEF /* ImageUtil.swift in Sources */,
 				03E17BF91B237A0F00ED0128 /* DatabaseUtil.swift in Sources */,
 				03E17BFB1B237A3700ED0128 /* DateUtil.swift in Sources */,
 				03E17BF71B2379E400ED0128 /* FileUtil.swift in Sources */,
