@@ -11,7 +11,7 @@ import UIKit
 public class ImageUtil: NSObject {
  
     
-    public func imageResize(imageObj:UIImage, sizeChange:CGSize)-> UIImage{
+    public static func imageResize(imageObj:UIImage, sizeChange:CGSize)-> UIImage{
         let hasAlpha = false
         let scale: CGFloat = 0.0
         UIGraphicsBeginImageContextWithOptions(sizeChange, !hasAlpha, scale)
@@ -20,7 +20,7 @@ public class ImageUtil: NSObject {
         return scaledImage
     }
     
-    public func imageResize(imageObj:UIImage, reduceSize:CGFloat)-> UIImage{
+    public static func imageResize(imageObj:UIImage, reduceSize:CGFloat)-> UIImage{
         let hasAlpha = false
         let scale: CGFloat = 0.0
         let newHeight:CGFloat = imageObj.size.height/reduceSize
@@ -31,4 +31,5 @@ public class ImageUtil: NSObject {
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
         return scaledImage
     }
+ 
 }
