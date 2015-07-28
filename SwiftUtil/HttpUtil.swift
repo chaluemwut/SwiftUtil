@@ -23,7 +23,7 @@ public class HttpUtil {
         self.request(baseURL+param)
     }
     
-    public static func uploadImage(uploadUrl:String , delegate:AnyObject, picture:NSData){        
+    public static func uploadImage(uploadUrl:String , delegate:AnyObject, picture:NSData, fileName:String){
         let request:NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(fileURLWithPath: uploadUrl)
         request.HTTPMethod = "POST"
@@ -38,6 +38,7 @@ public class HttpUtil {
         //The file to upload
         body.appendData("--%\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
         body.appendData("Content-Disposition: form-data; name=\"file\"; filename=\"file.png\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("Content-Disposition: form-data; name=\"img\"; filename=\"\(fileName)\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
         body.appendData("Content-Type: application/octet-stream\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
         body.appendData(picture)
         body.appendData("\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
