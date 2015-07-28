@@ -24,29 +24,28 @@ public class HttpUtil {
     }
     
     public static func uploadImage(uploadUrl:String , delegate:AnyObject, picture:NSData, fileName:String){
-        let request:NSMutableURLRequest = NSMutableURLRequest()
-        request.URL = NSURL(fileURLWithPath: uploadUrl)
-        request.HTTPMethod = "POST"
+        // create url request to send
+        var mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: uploadUrl)!)
+        mutableURLRequest.HTTPMethod = "POST"
+        let boundaryConstant = "myRandomBoundary12345";
+        let contentType = "multipart/form-data;boundary="+boundaryConstant
+        mutableURLRequest.setValue(contentType, forHTTPHeaderField: "Content-Type")
         
-        let body:NSMutableData = NSMutableData();
         
-        let boundary:NSString = "---------------------------14737809831466499882746641449"
         
-        var contentType:String = "multipart/form-data; boundary=\(boundary)"
-        request.addValue(contentType, forHTTPHeaderField:"Content-type")
+        // create upload data to send
+        let uploadData = NSMutableData()
         
-        //The file to upload
-        body.appendData("--%\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
-        body.appendData("Content-Disposition: form-data; name=\"file\"; filename=\"file.png\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        body.appendData("Content-Disposition: form-data; name=\"img\"; filename=\"\(fileName)\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        body.appendData("Content-Type: application/octet-stream\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        body.appendData(picture)
-        body.appendData("\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        body.appendData("Content-Type: application/octet-stream\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        body.appendData("--%\(boundary)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        request.HTTPBody = body
+        // add image
+        uploadData.appendData("\r\n--\(boundaryConstant)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        uploadData.appendData("Content-Disposition: form-data; name=\"img\"; filename=\"\(fileName)\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        uploadData.appendData("Content-Type: image/png\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        uploadData.appendData(picture)
         
-        var connection:NSURLConnection = NSURLConnection(request: request, delegate: delegate, startImmediately: true)!
+        uploadData.appendData("\r\n--\(boundaryConstant)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        mutableURLRequest.HTTPBody = uploadData
+        
+        var connection:NSURLConnection = NSURLConnection(request: mutableURLRequest, delegate: delegate, startImmediately: true)!
         connection.start()
     }
     
