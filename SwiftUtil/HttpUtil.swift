@@ -23,6 +23,32 @@ public class HttpUtil {
         self.request(baseURL+param)
     }
     
+    public static func uploadImage(uploadUrl:String , delegate:AnyObject, picture:NSData){        
+        let request:NSMutableURLRequest = NSMutableURLRequest()
+        request.URL = NSURL(fileURLWithPath: uploadUrl)
+        request.HTTPMethod = "POST"
+        
+        let body:NSMutableData = NSMutableData();
+        
+        let boundary:NSString = "---------------------------14737809831466499882746641449"
+        
+        var contentType:String = "multipart/form-data; boundary=\(boundary)"
+        request.addValue(contentType, forHTTPHeaderField:"Content-type")
+        
+        //The file to upload
+        body.appendData("--%\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
+        body.appendData("Content-Disposition: form-data; name=\"file\"; filename=\"file.png\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("Content-Type: application/octet-stream\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData(picture)
+        body.appendData("\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("Content-Type: application/octet-stream\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("--%\(boundary)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        request.HTTPBody = body
+        
+        var connection:NSURLConnection = NSURLConnection(request: request, delegate: delegate, startImmediately: true)!
+        connection.start()
+    }
+    
     private static func templateCall(strURL:String, instance:AnyObject?){
         var url: NSURL = NSURL(string: strURL)!
         var request: NSURLRequest = NSURLRequest(URL: url)
