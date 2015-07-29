@@ -50,7 +50,8 @@ public class HttpUtil {
     }
     
     private static func templateCall(strURL:String, instance:AnyObject?){
-        var url: NSURL = NSURL(string: strURL)!
+        let endcodeURL:String = strURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        var url: NSURL = NSURL(string: endcodeURL)!
         var request: NSURLRequest = NSURLRequest(URL: url)
         var connection: NSURLConnection = NSURLConnection(request: request, delegate: instance, startImmediately: true)!
         connection.start()
