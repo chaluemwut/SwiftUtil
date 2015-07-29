@@ -5,12 +5,12 @@ public class HttpUtil {
     public init(){}
     
     public static func request(var strURL:String, instance:AnyObject?) {
-        strURL+="?r="+RandomUtil.randomStringWithLength(5)
+        strURL=strURL+"&r="+RandomUtil.randomStringWithLength(5)
         self.templateCall(strURL, instance: instance)
     }
     
     public static func request(var strURL:String){
-        strURL+="?r="+RandomUtil.randomStringWithLength(5)
+        strURL=strURL+"&r="+RandomUtil.randomStringWithLength(5)
         self.templateCall(strURL, instance: nil)
     }
     
