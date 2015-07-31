@@ -27,4 +27,22 @@ public class FileUtil {
         }
         return nil
     }
+    
+    public static func writeImage(img:UIImage, fileName:String){
+        if let dirs:[String] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String] {
+            let dir = dirs[0]
+            let path = dir.stringByAppendingPathComponent(fileName)
+            UIImageJPEGRepresentation(img, 1.0).writeToFile(path, atomically: true)
+        }
+    }
+    
+    public static func readImag(fileName:String) -> UIImage? {
+        if let dirs:[String] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String] {
+            let dir = dirs[0]
+            let path = dir.stringByAppendingPathComponent(fileName)
+            let ret:UIImage? = UIImage(contentsOfFile: path)
+            return ret
+        }
+        return nil
+    }
 }
