@@ -54,6 +54,7 @@ public class HttpUtil {
     }
     
     private static func templateCall(strURL:String, instance:AnyObject?){
+        println(strURL)
         let endcodeURL:String = strURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         var url: NSURL = NSURL(string: endcodeURL)!
         var request: NSURLRequest = NSURLRequest(URL: url)
