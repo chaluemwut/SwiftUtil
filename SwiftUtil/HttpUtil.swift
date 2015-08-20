@@ -12,6 +12,11 @@ public class HttpUtil {
         strURL=strURL+"&r="+RandomUtil.randomStringWithLength(5)
         self.templateCall(strURL, instance: instance)
     }
+
+    public static func requestNoParameter(var strURL:String, instance:AnyObject?) {
+        strURL=strURL+"?r="+RandomUtil.randomStringWithLength(5)
+        self.templateCall(strURL, instance: instance)
+    }
     
     public static func request(var strURL:String){
         strURL=strURL+"&r="+RandomUtil.randomStringWithLength(5)
