@@ -14,7 +14,10 @@ public class FileUtil {
         if let dirs:[String] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String] {
             let dir = dirs[0]
             let path = dir.stringByAppendingPathComponent(fileName)
-            msg.writeToFile(path, atomically: false, encoding: NSUTF8StringEncoding, error: nil);
+            do {
+                try msg.writeToFile(path, atomically: false, encoding: NSUTF8StringEncoding)
+            } catch _ {
+            };
         }
     }
     
@@ -22,7 +25,7 @@ public class FileUtil {
         if let dirs:[String] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String] {
             let dir = dirs[0]
             let path = dir.stringByAppendingPathComponent(fileName)
-            let ret:String? = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil)
+            let ret:String? = try? String(contentsOfFile: path, encoding: NSUTF8StringEncoding)
             return ret
         }
         return nil

@@ -13,7 +13,7 @@ class TokenButton: UIButton {
     let checkedImage = UIImage(named: "start")
     let unCheckedImage = UIImage(named: "unstart")
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
 //        cvstPosition = 0
         super.init(coder: aDecoder)
     }

@@ -4,7 +4,7 @@ public class HttpUtil {
     
     public init(){}
     
-    public static func requestWithCache(var strURL:String, instance:AnyObject?) {
+    public static func requestWithCache(strURL:String, instance:AnyObject?) {
         self.templateCall(strURL, instance: instance)
     }
     
@@ -28,13 +28,13 @@ public class HttpUtil {
         for (key, value) in paramData {
             param+=key+"="+(value as! String)+"&"
         }
-        param = param.substringWithRange(Range<String.Index>(start: param.startIndex, end: advance(param.endIndex, -1)))
+        param = param.substringWithRange(Range<String.Index>(start: param.startIndex, end: param.endIndex.advancedBy(-1)))
         self.request(baseURL+param)
     }
     
     public static func uploadImage(uploadUrl:String , delegate:AnyObject, picture:NSData, fileName:String){
         // create url request to send
-        var mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: uploadUrl)!)
+        let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: uploadUrl)!)
         mutableURLRequest.HTTPMethod = "POST"
         let boundaryConstant = "myRandomBoundary12345";
         let contentType = "multipart/form-data;boundary="+boundaryConstant
@@ -54,16 +54,16 @@ public class HttpUtil {
         uploadData.appendData("\r\n--\(boundaryConstant)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
         mutableURLRequest.HTTPBody = uploadData
         
-        var connection:NSURLConnection = NSURLConnection(request: mutableURLRequest, delegate: delegate, startImmediately: true)!
+        let connection:NSURLConnection = NSURLConnection(request: mutableURLRequest, delegate: delegate, startImmediately: true)!
         connection.start()
     }
     
     private static func templateCall(strURL:String, instance:AnyObject?){
-        println(strURL)
+        print(strURL)
         let endcodeURL:String = strURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-        var url: NSURL = NSURL(string: endcodeURL)!
-        var request: NSURLRequest = NSURLRequest(URL: url)
-        var connection: NSURLConnection = NSURLConnection(request: request, delegate: instance, startImmediately: true)!
+        let url: NSURL = NSURL(string: endcodeURL)!
+        let request: NSURLRequest = NSURLRequest(URL: url)
+        let connection: NSURLConnection = NSURLConnection(request: request, delegate: instance, startImmediately: true)!
         connection.start()
     }
 
