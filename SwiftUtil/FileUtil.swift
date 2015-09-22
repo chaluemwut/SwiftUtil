@@ -11,17 +11,46 @@ import Foundation
 public class FileUtil {
     
     public static func writeFile(msg:String, fileName:String){
-
+        if let dirs:[String] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String] {
+            let dir = dirs[0] as NSString
+            let path = dir.stringByAppendingPathComponent(fileName)
+            do {
+                try msg.writeToFile(path, atomically: false, encoding: NSUTF8StringEncoding);
+            } catch _ {
+                
+            }
+        }
     }
     
     public static func readFile(fileName:String) -> String? {
-        return nil;
+        if let dirs:[String] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String] {
+            let dir = dirs[0] as NSString
+            let path = dir.stringByAppendingPathComponent(fileName)
+            do {
+                let ret:String? = try String(contentsOfFile: path, encoding: NSUTF8StringEncoding)
+                return ret
+            } catch _ {
+                return nil
+            }
+        }
+        return nil
     }
     
     public static func writeImage(img:UIImage, fileName:String){
+        if let dirs:[String] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String] {
+            let dir = dirs[0] as NSString
+            let path = dir.stringByAppendingPathComponent(fileName)
+            UIImageJPEGRepresentation(img, 1.0)!.writeToFile(path, atomically: true)
+        }
     }
     
     public static func readImag(fileName:String) -> UIImage? {
+        if let dirs:[String] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String] {
+            let dir = dirs[0] as NSString
+            let path = dir.stringByAppendingPathComponent(fileName)
+            let ret:UIImage? = UIImage(contentsOfFile: path)
+            return ret
+        }
         return nil
     }
 }
