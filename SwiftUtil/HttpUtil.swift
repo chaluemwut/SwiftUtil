@@ -4,6 +4,19 @@ public class HttpUtil {
     
     public init(){}
     
+    public static func requestSync(strURL:String){
+        let request = NSURLRequest(URL: NSURL(string: strURL)!)
+        var response:NSURLResponse?
+        do {
+            let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
+            print(data)
+            // Parse the data
+        } catch {
+            // handle error
+            print(error)
+        }
+    }
+    
     public static func requestWithCache(strURL:String, instance:AnyObject?) {
         self.templateCall(strURL, instance: instance)
     }
