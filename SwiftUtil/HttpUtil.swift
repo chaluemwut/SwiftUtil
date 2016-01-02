@@ -4,17 +4,17 @@ public class HttpUtil {
     
     public init(){}
     
-    public static func requestSync(strURL:String){
-        let request = NSURLRequest(URL: NSURL(string: strURL)!)
-        var response:NSURLResponse?
+    public static func requestSync(strURL:String) -> NSData? {
+        let req = NSURLRequest(URL: NSURL(string:strURL)!)
+        var res:NSURLResponse?
         do {
-            let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
-            print(data)
-            // Parse the data
+            let data = try NSURLConnection.sendSynchronousRequest( req, returningResponse: &res)
+            let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)
+            print(jsonData)
+            return jsonData as! NSData
         } catch {
-            // handle error
-            print(error)
         }
+        return nil
     }
     
     public static func requestWithCache(strURL:String, instance:AnyObject?) {
@@ -79,5 +79,6 @@ public class HttpUtil {
         let connection: NSURLConnection = NSURLConnection(request: request, delegate: instance, startImmediately: true)!
         connection.start()
     }
-
+    
 }
+
