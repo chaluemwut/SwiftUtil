@@ -4,14 +4,13 @@ public class HttpUtil {
     
     public init(){}
     
-    public static func requestSync(strURL:String) -> NSData? {
+    func requestSync(strURL:String) -> NSDictionary? {
         let req = NSURLRequest(URL: NSURL(string:strURL)!)
         var res:NSURLResponse?
         do {
             let data = try NSURLConnection.sendSynchronousRequest( req, returningResponse: &res)
             let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)
-            print(jsonData)
-            return jsonData as! NSData
+            return jsonData as! NSDictionary
         } catch {
         }
         return nil
