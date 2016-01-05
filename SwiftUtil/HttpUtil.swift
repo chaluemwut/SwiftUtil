@@ -4,7 +4,7 @@ public class HttpUtil {
     
     public init(){}
     
-    public func requestSync(strURL:String) -> NSDictionary? {
+    public static func requestSync(strURL:String) -> NSDictionary? {
         let req = NSURLRequest(URL: NSURL(string:strURL)!)
         var res:NSURLResponse?
         do {
