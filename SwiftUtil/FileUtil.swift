@@ -10,6 +10,18 @@ import Foundation
 
 public class FileUtil {
     
+    public static func removeFileName(fileName:String) {
+        if let dirs:[String] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String] {
+            let dir = dirs[0] as NSString
+            let path = dir.stringByAppendingPathComponent(fileName)
+            do {
+                try NSFileManager.defaultManager().removeItemAtPath(path)
+            } catch _ {
+                
+            }
+        }
+    }
+    
     public static func writeFile(msg:String, fileName:String){
         if let dirs:[String] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String] {
             let dir = dirs[0] as NSString
