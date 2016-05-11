@@ -11,7 +11,7 @@ import Foundation
 public class UIUtil {
     
     public static func standardButton(rec: CGRect, msg:String, color:UIColor) -> UIButton {
-        var btn = UIButton(type: .Custom)
+        let btn = UIButton(type: .Custom)
         btn.frame = rec
         btn.setTitle(msg, forState: .Normal)
         btn.setTitleColor(color, forState: .Normal)
@@ -19,6 +19,16 @@ public class UIUtil {
         btn.layer.cornerRadius = 5
         btn.layer.borderColor = color.CGColor
         return btn
+    }
+    
+    public static func getSize(iphone: CGFloat, ipad: CGFloat) -> CGFloat {
+        if (UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad){
+            // Ipad
+            return ipad
+        } else {
+            // Iphone
+            return iphone
+        }
     }
     
 }
