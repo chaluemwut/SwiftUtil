@@ -21,7 +21,7 @@ public class UIUtil {
         return btn
     }
     
-    public static func getSize(iphone: CGFloat, ipad: CGFloat) -> CGFloat {
+    public static func getSize(iphone: CGRect, ipad: CGRect) -> CGRect {
         if (UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad){
             // Ipad
             return ipad
