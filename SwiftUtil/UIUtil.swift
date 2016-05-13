@@ -41,4 +41,15 @@ public class UIUtil {
         }
     }
     
+    public static func getOneSize(iphone:CGFloat, iphone6plus: CGFloat, ipad: CGFloat) -> CGFloat {
+        if (UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad){
+            return ipad
+        } else if  UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Phone && ScreenSize.SCREEN_MAX_LENGTH == 736.0{
+            return iphone6plus
+        } else {
+            // Iphone
+            return iphone
+        }
+    }
+    
 }
